@@ -32,10 +32,7 @@ export function validateAddress(value: string): boolean {
             const houses = (addressesRaw as any)[region][town][address][0];
             if(house) {
                 for (let houseNumber of houses) {
-                    if (houseNumber.toString().startsWith(house) ) {
-
-                        return true;
-                    }
+                    if (houseNumber.toString().startsWith(house)) return true;
                 }
             return false;
             }else return true;
