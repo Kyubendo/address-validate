@@ -6,7 +6,7 @@ type Streets = {
 type Towns = {
     [towns: string]: Streets
 }
-type Addresses = {
+export type Addresses = {
     [regions: string] : Towns
 }
 
