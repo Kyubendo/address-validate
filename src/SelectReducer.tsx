@@ -1,34 +1,22 @@
+import {Addresses} from "./data/addresses.json";
 import React from "react";
-import addressesRaw from "./data/addresses.json";
 
-interface SelectRegionProps {
-    place: string
+export type SelectState = {
+    region: string;
     town: string;
-    onStateChange: (value: React.ChangeEvent<HTMLSelectElement>) => void
-    action: { type:string, place:string }
+    arr: Addresses;
 }
 
-
-const SelectReducer: React.FC<SelectRegionProps> = ({place, onStateChange, action}) => {
-    let placeList:string[] = [];
-    switch (action.type) {
-        case 'REGION_CHANGE': placeList = Object.keys(addressesRaw);
-
-
-    }
-    ;
-    const selectOptions = [];
-    for (let place of placeList) {
-        selectOptions.push(<option value={place}>{place}</option>)
-    }
-    return (
-        <>
-            <select value={place}
-                    onChange={onStateChange}
-                    id={'regions'}>
-                {selectOptions}
-            </select>
-        </>
-    )
+type SelectAction = {
+    field: string;
+    value: string;
 }
-export default SelectReducer
+
+type Reducer = React.Reducer<SelectState, SelectAction>;
+export type Dispatch = React.Dispatch<SelectAction>;
+export const selectReducer: Reducer = (prevState, action) => {
+    return {
+        ...prevState,
+        [action.field]: action.value,
+    };
+}
