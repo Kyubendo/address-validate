@@ -5,25 +5,21 @@ import addressesRaw from "../data/addresses.json";
 const region = "Харківська";
 const town = 'м. Харків'
 
-const  addresses = (addressesRaw as any)[region][town];
+const  addresses = addressesRaw[region];
 
 
 
 describe("Address Validation", () => {
 
-    // const re = /^.*-.*\s/
-    // let arr:any = [];
-    // //console.log(addresses)
-    // for (let address of Object.keys(addresses)){
-    //     if (re.test(address)){
-    //         if (!arr.includes(address.match(re)![0])) arr.push(address);
-    //     }
-    // }
-    // console.log(arr)
-    // for (let address of Object.keys(addresses)) {
-    //     console.log(address)
-    // }
-
+    const re = /^.*\s/
+    let arr:any = ['с-ще'];
+    //console.log(addresses)
+    for (let address of Object.keys(addresses)){
+        if (re.test(address)){
+            if (!arr.includes(address.match(re)![0])) arr.push(address);
+        }
+    }
+    console.log(arr)
     const formats: Array<{
         name: string,
         examples: string[],
@@ -45,22 +41,22 @@ describe("Address Validation", () => {
         },
     ];
 
-    for (let i = 0; i<formats.length; i++){
-        for (let j = 0; j<formats[i].examples.length; j++){
-            it(`format = ${formats[i].name}, value =${formats[i].examples[j]}`, () => {
-                const res = validateAddress(formats[i].examples[j]);
-                expect(res).toEqual(true);
-            })
-        }
-    }
-    for (let i = 0; i<formatsWrong.length; i++){
-        for (let j = 0; j<formatsWrong[i].examples.length; j++){
-            it(`WRONG VALUE -- format = ${formatsWrong[i].name}, value =${formatsWrong[i].examples[j]}`, () => {
-                const res = validateAddress(formatsWrong[i].examples[j]);
-                expect(res).toEqual(false);
-            })
-        }
-    }
-
+    // for (let i = 0; i<formats.length; i++){
+    //     for (let j = 0; j<formats[i].examples.length; j++){
+    //         it(`format = ${formats[i].name}, value =${formats[i].examples[j]}`, () => {
+    //             const res = validateAddress(formats[i].examples[j]);
+    //             expect(res).toEqual(true);
+    //         })
+    //     }
+    // }
+    // for (let i = 0; i<formatsWrong.length; i++){
+    //     for (let j = 0; j<formatsWrong[i].examples.length; j++){
+    //         it(`WRONG VALUE -- format = ${formatsWrong[i].name}, value =${formatsWrong[i].examples[j]}`, () => {
+    //             const res = validateAddress(formatsWrong[i].examples[j]);
+    //             expect(res).toEqual(false);
+    //         })
+    //     }
+    // }
+    //
 
 });
