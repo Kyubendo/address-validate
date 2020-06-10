@@ -12,18 +12,18 @@ type ValueAction = {
 type ValueReducer = React.Reducer<ValueState, ValueAction>
 
 export const valueReducer: ValueReducer = (prevState, action) => {
-    if (action.type == 'clear') {
-        return {
+    switch (action.type) {
+        case 'clear': return {
             ...prevState,
             value: '',
         }
-    } else if (action.type == 'change') {
-        return {
+        case 'change': return {
+                ...prevState,
+                value: action.newValue
+        }
+        default: return {
             ...prevState,
             value: action.newValue
         }
-    }
-    return {
-        ...prevState
     }
 }

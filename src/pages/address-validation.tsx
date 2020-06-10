@@ -1,9 +1,6 @@
 import React, {ChangeEventHandler} from "react";
 import { Page } from "./page";
 import addressesRaw from '../data/addresses.json';
-const region = "Харківська";
-const town = 'м. Харків'
-
 
 /**
  *
@@ -17,6 +14,7 @@ const streetTypes: Array<[string, string]> = [
     ["площа", "пл."],
     ["квартал", "кв-л"],
     ["бульвар", "бульв."],
+    ["мікрорайон", "м-р"],
 ];
 
 const addresses = addressesRaw;
