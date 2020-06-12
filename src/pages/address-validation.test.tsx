@@ -13,7 +13,6 @@ describe("Address Validation", () => {
 
     const re = /^.*\s/
     let arr:any = ['с-ще'];
-    //console.log(addresses)
     for (let address of Object.keys(addresses)){
         if (re.test(address)){
             if (!arr.includes(address.match(re)![0])) arr.push(address);

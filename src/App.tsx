@@ -3,7 +3,6 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import * as pages from "./pages";
-import OldSelect from "./OldSelect";
 import Address from "./Address";
 const routes: Array<pages.Page> = [
     pages.Home,

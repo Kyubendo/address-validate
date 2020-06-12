@@ -19,6 +19,7 @@ const streetTypes: Array<[string, string]> = [
 
 const addresses = addressesRaw;
 export function validateAddress(value: string, region:string, town:string): boolean {
+    if (!Object.keys(addresses[region]).includes(town)) return false
     let convertedValue = value;
     for(let [long, short] of streetTypes) {
         convertedValue = convertedValue.replace(long, short);
