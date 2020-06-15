@@ -1,14 +1,15 @@
 import React, {useReducer} from "react";
-import {validateAddress} from "./pages"
 import addressesRaw from "./data/addresses.json";
 import SelectRegion from "./SelectRegion";
 import {selectReducer} from "./SelectReducer";
 import {valueReducer} from "./ValueReducer";
 import TownInput from "./TownInput";
+import {validateAddress} from "./pages/address-validation"
 
 const Address = () => {
     const [stateValue, dispatchValue] = useReducer(valueReducer, {value: ''});
-    const [stateSelect, dispatchSelect] = useReducer(selectReducer, {region: 'Харківська', town: '', arr: addressesRaw});
+    const [stateSelect, dispatchSelect] = useReducer(selectReducer, {region: 'Харківська',
+        town: '', arr: addressesRaw});
     return (
         <div style={{width: "50%", margin: "0 auto"}}>
             <SelectRegion dispatch={dispatchSelect} state={stateSelect}

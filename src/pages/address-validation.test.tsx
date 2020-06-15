@@ -1,13 +1,10 @@
 import { validateAddress } from "./address-validation";
 import addressesRaw from "../data/addresses.json";
 
-
 const region = "Харківська";
 const town = 'м. Харків'
 
 const  addresses = addressesRaw[region];
-
-
 
 describe("Address Validation", () => {
 
